@@ -4,7 +4,6 @@ export default function Experience()
 {
 
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
-    console.log(computer);
     return <>
 
     <Environment preset="city" />
