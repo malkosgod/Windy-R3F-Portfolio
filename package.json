@@ -12,11 +12,13 @@
     "vite": "^4.0.4"
   },
   "dependencies": {
-    "react": "18.2",
-    "react-dom": "18.2",
+    "@pmndrs/assets": "^1.0.7",
     "@react-three/drei": "^9.50.3",
     "@react-three/fiber": "^8.9.2",
+    "drei": "^2.2.21",
     "r3f-perf": "^6.6.3",
+    "react": "18.2",
+    "react-dom": "18.2",
     "three": "^0.148.0"
   }
 }
