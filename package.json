@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@pmndrs/assets": "^1.0.7",
-    "@react-three/drei": "^9.50.3",
+    "@react-three/drei": "^9.74.6",
     "@react-three/fiber": "^8.9.2",
     "drei": "^2.2.21",
     "r3f-perf": "^6.6.3",
