@@ -6,9 +6,9 @@ export default function Experience()
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
     return <>
 
-    <Environment preset="park" />
+    <Environment preset="city" />
 
-    <color args={ ['#241a1a']} attach ="background" />
+    <color args={ ['#06F1F2']} attach ="background" />
     <PresentationControls
         global 
         rotation={ [0.13, 0.1, 0] }
