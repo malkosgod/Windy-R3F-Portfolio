@@ -1,9 +1,59 @@
-import { Float, useGLTF, Environment, PresentationControls, ContactShadows, Html, Text } from '@react-three/drei'
+import { Float, Environment, PresentationControls, ContactShadows, Html, Text } from '@react-three/drei'
+import { useEffect, useState } from 'react'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+
+function ComputerModel()
+{
+    const [ computerScene, setComputerScene ] = useState(null)
+
+    useEffect(() =>
+    {
+        const loader = new GLTFLoader()
+        loader.load(
+            'https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf',
+            (gltf) =>
+            {
+                setComputerScene(gltf.scene)
+            },
+            undefined,
+            (error) =>
+            {
+                console.error('Failed to load computer model:', error)
+                setComputerScene(null)
+            }
+        )
+    }, [])
+
+    if(!computerScene)
+    {
+        return (
+            <mesh position-y={ -1.2 }>
+                <boxGeometry args={ [ 2, 0.25, 1.4 ] } />
+                <meshStandardMaterial color="#222" />
+            </mesh>
+        )
+    }
+
+    return (
+        <primitive
+            object={ computerScene }
+            position-y={ -1.2 }
+        >
+            <Html
+                transform
+                wrapperClass="htmlScreen"
+                distanceFactor={ 1.17 }
+                position={ [ 0, 1.56, -1.4 ] }
+                rotation-x={ - 0.256 }
+            >
+                <iframe src="https://windy-portfolio.vercel.app/" />
+            </Html>
+        </primitive>
+    )
+}
 
 export default function Experience()
 {
-
-    const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
     return <>
 
     <Environment preset="city" />
@@ -26,21 +76,7 @@ export default function Experience()
                     rotation={[ 0.1, Math.PI, 0 ]}
                     position={ [ 0, 0.55, 1.15 ] }
                 />
-                <primitive 
-                object={ computer.scene } 
-                position-y={ -1.2 }
-                >
-                    
-                    <Html
-                        transform 
-                        wrapperClass="htmlScreen"
-                        distanceFactor={ 1.17 }
-                        position={ [ 0, 1.56, -1.4 ] }
-                        rotation-x={ - 0.256 }
-                    >
-                        <iframe src="https://windy-portfolio.vercel.app/" />
-                    </Html>
-                </primitive>
+                <ComputerModel />
                 <Text
                     font="./bangers-v20-latin-regular.woff"
                     fontSize={ 1.5 }
