@@ -1,4 +1,5 @@
 import './style.css'
+import { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
@@ -14,6 +15,8 @@ root.render(
             position: [ -3, 1.5, 4 ]
         } }
     >
-        <Experience />
+        <Suspense fallback={ null }>
+            <Experience />
+        </Suspense>
     </Canvas>
 )
