@@ -2,12 +2,16 @@ import './style.css'
 import { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
+import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js'
 import Experience from './Experience.jsx'
+
+RectAreaLightUniformsLib.init()
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
     <Canvas
+        shadows
         camera={ {
             fov: 45,
             near: 0.1,
